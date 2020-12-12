@@ -1,5 +1,7 @@
 package add.numbers;
 
+import java.util.Scanner;
+
 public class Operation {
 	
 	public static void main(String args[]) {
@@ -7,21 +9,37 @@ public class Operation {
 	}
 
 	public int Add(String input) {
-		String[] in = input.split(",");
+		Scanner sc = new Scanner(input);
+		String[] in = null ;
 		int sum = 0;
+		String delimeter = ",";
+		
+		while(sc.hasNextLine()){
+            String inputString = sc.next();  
+            
+            if(inputString.startsWith("//")) {
+            	delimeter = inputString.substring(2);
+            	in = sc.next().split(delimeter);
+            }
+            else {
+            	in = inputString.split(delimeter);
+            }
+            
+        } 
+		sc.close();
+		
+		if(in == null) {
+			return 0;
+		}
 		
 		if(in.length == 1) {
-			if(in[0].length() == 0) {
-				return 0;
-			}
-			else {
-				return Integer.parseInt(in[0]);
-			}
+			return Integer.parseInt(in[0]);
 		}
 		
 		for(int i = 0 ; i < in.length; i++) {
 			sum = sum + Integer.parseInt(in[i]);
 		}
+		
 		return sum;
 	}
 

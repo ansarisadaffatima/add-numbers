@@ -1,5 +1,7 @@
 package add.numbers.test;
 
+import java.util.Scanner;
+
 import org.junit.Test;
 
 import add.numbers.Operation;
@@ -42,6 +44,15 @@ public class TestAddNumber {
 		int result = op.Add("1000,2111,1,2,2500");
 		Assert.assertEquals(5614, result);
 
+	}
+	
+	@Test
+	public void testWithDifferentDelimeters() {
+		// 3 Testcase
+		Operation op = new Operation();
+		int result = op.Add("//;\n599;132");
+		//System.out.println(sc.delimiter());
+		Assert.assertEquals(731, result);	
 	}
 
 }
