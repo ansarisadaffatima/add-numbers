@@ -10,7 +10,6 @@ public class Operation {
 
 	public int Add(String input) {
 		Scanner sc = new Scanner(input);
-		String[] in = null ;
 		int sum = 0;
 		String delimeter = ",";
 		
@@ -19,27 +18,22 @@ public class Operation {
             
             if(inputString.startsWith("//")) {
             	delimeter = inputString.substring(2);
-            	in = sc.next().split(delimeter);
             }
             else {
-            	in = inputString.split(delimeter);
+            	sum = sum + calculateSumOfArray(inputString.split(delimeter));
             }
             
         } 
-		sc.close();
+		sc.close();	
 		
-		if(in == null) {
-			return 0;
+		return sum;
+	}
+
+	int calculateSumOfArray(String input[]){
+		int sum = 0;       
+		for(int i = 0 ; i < input.length; i++) {
+			sum = sum + Integer.parseInt(input[i]);
 		}
-		
-		if(in.length == 1) {
-			return Integer.parseInt(in[0]);
-		}
-		
-		for(int i = 0 ; i < in.length; i++) {
-			sum = sum + Integer.parseInt(in[i]);
-		}
-		
 		return sum;
 	}
 
