@@ -8,6 +8,7 @@ public class Operation {
 
 	public int Add(String input) {
 		String[] in = input.split(",");
+		int sum = 0;
 		
 		if(in.length == 1) {
 			if(in[0].length() == 0) {
@@ -18,7 +19,10 @@ public class Operation {
 			}
 		}
 		
-		return (Integer.parseInt(in[0]) + Integer.parseInt(in[1]));
+		for(int i = 0 ; i < in.length; i++) {
+			sum = sum + Integer.parseInt(in[i]);
+		}
+		return sum;
 	}
 
 }

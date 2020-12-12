@@ -34,5 +34,14 @@ public class TestAddNumber {
 		Assert.assertEquals(3111, result);
 
 	}
+	
+	@Test
+	public void testUnknownAmountOfNumbers() {
+		// 2 Testcase
+		Operation op = new Operation();
+		int result = op.Add("1000,2111,1,2,2500");
+		Assert.assertEquals(5614, result);
+
+	}
 
 }
