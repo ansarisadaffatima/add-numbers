@@ -31,7 +31,7 @@ public class TestAddNumber {
 		// 1.3 Testcase
 		Operation op = new Operation();
 		int result = op.Add("1000,2111");
-		Assert.assertEquals(3, result);
+		Assert.assertEquals(3111, result);
 
 	}
 
