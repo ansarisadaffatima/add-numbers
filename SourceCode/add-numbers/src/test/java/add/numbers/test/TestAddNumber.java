@@ -35,8 +35,8 @@ public class TestAddNumber {
 	public void testfor2Numbers() throws Exception {
 		// 1.3 Testcase
 		Operation op = new Operation();
-		int result = op.Add("1000,2111");
-		Assert.assertEquals(3111, result);
+		int result = op.Add("100,211");
+		Assert.assertEquals(311, result);
 
 	}
 	
@@ -44,8 +44,8 @@ public class TestAddNumber {
 	public void testUnknownAmountOfNumbers() throws Exception {
 		// 2 Testcase
 		Operation op = new Operation();
-		int result = op.Add("1000,2111,1,2,2500");
-		Assert.assertEquals(5614, result);
+		int result = op.Add("100,211,1,2,250");
+		Assert.assertEquals(564, result);
 
 	}
 	
@@ -69,16 +69,16 @@ public class TestAddNumber {
 	public void AdditionalTest1() throws Exception {
 		// 4.1 TestCase WithNumbersInNewLine
 		Operation op = new Operation();
-		int result = op.Add("1\n599,132\n54\n85\n78,9333");
-		Assert.assertEquals(10282, result);
+		int result = op.Add("1\n599,132\n54\n85\n78,933");
+		Assert.assertEquals(1882, result);
 	}
 	
 	@Test
 	public void AdditionalTest2() throws Exception {
 		// 4.2 TestCase With NumbersInNewLine + DifferentDelimeter
 		Operation op = new Operation();
-		int result = op.Add("//-\n2\n599-132\n54\n85\n78-9333");
-		Assert.assertEquals(10283, result);
+		int result = op.Add("//-\n2\n599-132\n54\n85\n78-933");
+		Assert.assertEquals(1883, result);
 	}
 	
 	@Rule
@@ -91,6 +91,14 @@ public class TestAddNumber {
 		exceptionRule.expectMessage("negatives not allowed(-1,-4,-8)");
 		Operation op = new Operation();
 		op.Add("-1,2\n-4,-8");
+	}
+	
+	@Test
+	public void testNumbersBiggerThan1000() throws Exception {
+		// 6 TestCase
+		Operation op = new Operation();
+		int result = op.Add("6,1000\n4,2000\n8");
+		Assert.assertEquals(18,result);
 	}
 
 }
