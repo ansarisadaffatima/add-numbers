@@ -8,7 +8,7 @@ public class Operation {
 		
 	}
 
-	public int Add(String input) {
+	public int Add(String input) throws java.lang.Exception {
 		Scanner sc = new Scanner(input);
 		int sum = 0;
 		String delimeter = ",";
@@ -26,13 +26,28 @@ public class Operation {
         } 
 		sc.close();	
 		
+		checkIfExceptionAny(exMessage);
+		
 		return sum;
 	}
+	
+	private void checkIfExceptionAny(String exMessage2) throws java.lang.Exception {
+		if(! exMessage.equals("")) {
+			throw new Exception(Exception +"(" +exMessage.replaceFirst(",", "") + ")");
+		}
+	}
+
+	String exMessage = "";
+	String Exception = "negatives not allowed";
 
 	int calculateSumOfArray(String input[]){
 		int sum = 0;       
 		for(int i = 0 ; i < input.length; i++) {
-			sum = sum + Integer.parseInt(input[i]);
+			int data = Integer.parseInt(input[i]);
+			if(data < 0) {
+				exMessage = exMessage + "," + data;
+			}
+			sum = sum + data;
 		}
 		return sum;
 	}
