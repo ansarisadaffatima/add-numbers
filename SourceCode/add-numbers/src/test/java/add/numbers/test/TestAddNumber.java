@@ -96,6 +96,7 @@ public class TestAddNumber {
 	@Test
 	public void testNumbersBiggerThan1000() throws Exception {
 		// 6 TestCase
+		
 		Operation op = new Operation();
 		int result = op.Add("6,1000\n4,2000\n8");
 		Assert.assertEquals(18,result);
