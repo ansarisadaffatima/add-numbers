@@ -47,7 +47,10 @@ public class Operation {
 			if(data < 0) {
 				exMessage = exMessage + "," + data;
 			}
-			sum = sum + data;
+			
+			if(data<1000) {
+				sum = sum + data;
+			}
 		}
 		return sum;
 	}
